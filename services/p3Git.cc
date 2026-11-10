@@ -25,7 +25,7 @@
 #include <string>
 #include <vector>
 #include <atomic>
-#include <filesystem>
+#include "rs_filesystem.h"
 
 #include "gui/RetroGitNotify.h"
 #include "p3Git.h"
@@ -85,7 +85,7 @@ bool findPackFile(const RsFileHash &hash, const std::string &name, uint64_t size
         return false;
     const std::string candidate = rsFiles->getDownloadDirectory() + "/" + name;
     std::error_code ec;
-    const auto found = std::filesystem::file_size(std::filesystem::u8path(candidate), ec);
+    const auto found = fs::file_size(fs::u8path(candidate), ec);
     if (ec || found != size) return false;
     path = candidate;
     return true;

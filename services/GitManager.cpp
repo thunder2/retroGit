@@ -21,7 +21,7 @@
 #include "GitManager.h"
 #include <iostream>
 #include <fstream>
-#include <filesystem>
+#include "rs_filesystem.h"
 #include <functional>
 #include <mutex>
 #include <string.h>
@@ -29,7 +29,7 @@
 #include <retroshare/rsinit.h>
 #include <algorithm>
 
-namespace fs = std::filesystem;
+//namespace fs = std::filesystem;
 
 static std::string normalizePath(const std::string& path)
 {
